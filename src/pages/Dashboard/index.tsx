@@ -84,14 +84,14 @@ const Dashboard: React.FC = () => {
         },
       })
       .then(response => {
-        const appointmentsFormmatted = response.data.map(appointment => {
+        const formattedAppointments = response.data.map(appointment => {
           return {
             ...appointment,
             formattedHour: format(parseISO(appointment.date), 'HH:mm'),
           };
         });
 
-        setAppointments(appointmentsFormmatted);
+        setAppointments(formattedAppointments);
       });
   }, [selectedDate]);
 
